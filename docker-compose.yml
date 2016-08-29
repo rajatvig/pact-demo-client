@@ -1,0 +1,10 @@
+version: '2'
+volumes:
+  pacts:
+services:
+  pactservice:
+    image: rajatvig/pactservice:0.1.1
+    volumes:
+      - ./Pacts:/pacts
+    ports:
+      - "1234:80"
