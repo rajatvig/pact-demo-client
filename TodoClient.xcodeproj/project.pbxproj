@@ -21,9 +21,6 @@
 		2E9420871D3DA96B007324BB /* TodoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9420861D3DA96B007324BB /* TodoClient.swift */; };
 		2E94208B1D3DA9CD007324BB /* TodoClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E94208A1D3DA9CD007324BB /* TodoClientSpec.swift */; };
 		2EB60E641D42799B00EF2A54 /* TodoClientContractSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */; };
-		5A5A1859BFF15D58BAE38DCC /* Pods_TodoClientContractTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1A61C909C643076021B69AA /* Pods_TodoClientContractTests.framework */; };
-		5A908B067A847A98F9AAF618 /* Pods_TodoClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F5C94A80797EC5806C7C91C /* Pods_TodoClientTests.framework */; };
-		EC59D8EDB5455921396777E0 /* Pods_TodoClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB97A3F60C07D97D857BF89 /* Pods_TodoClient.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,15 +53,6 @@
 		2EB60E571D42754900EF2A54 /* TodoClient.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoClient.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoClientContractSpec.swift; path = Tests/TodoClientContractSpec.swift; sourceTree = "<group>"; };
 		2EE67CC31D4C2B0500093142 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
-		3DE216584F20FCC8ACC74F02 /* Pods-TodoClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodoClientTests/Pods-TodoClientTests.release.xcconfig"; sourceTree = "<group>"; };
-		4F5C94A80797EC5806C7C91C /* Pods_TodoClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6B96408C442D0C913C969ABF /* Pods-TodoClientContractTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoClientContractTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodoClientContractTests/Pods-TodoClientContractTests.debug.xcconfig"; sourceTree = "<group>"; };
-		6C00A586E58BE483CCCBF882 /* Pods-TodoClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodoClient/Pods-TodoClient.release.xcconfig"; sourceTree = "<group>"; };
-		A5893A706C262F0124E7D63C /* Pods-TodoClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodoClientTests/Pods-TodoClientTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CBB97A3F60C07D97D857BF89 /* Pods_TodoClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D1A61C909C643076021B69AA /* Pods_TodoClientContractTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoClientContractTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E6B2E6BAC16EE0AEAAAF39D0 /* Pods-TodoClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TodoClient/Pods-TodoClient.debug.xcconfig"; sourceTree = "<group>"; };
-		EDFA3F91EFD7B79B6299149E /* Pods-TodoClientContractTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoClientContractTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TodoClientContractTests/Pods-TodoClientContractTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC59D8EDB5455921396777E0 /* Pods_TodoClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +67,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A908B067A847A98F9AAF618 /* Pods_TodoClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A5A1859BFF15D58BAE38DCC /* Pods_TodoClientContractTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,8 +120,6 @@
 				2E9420851D3DA959007324BB /* Sources */,
 				2E9420891D3DA9AD007324BB /* Tests */,
 				2E9420341D3DA854007324BB /* Products */,
-				B90AACE6EBA291701D1C8AC0 /* Pods */,
-				EE5E44688A53241EBD380B20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -169,29 +152,6 @@
 				2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */,
 			);
 			name = Tests;
-			sourceTree = "<group>";
-		};
-		B90AACE6EBA291701D1C8AC0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E6B2E6BAC16EE0AEAAAF39D0 /* Pods-TodoClient.debug.xcconfig */,
-				6C00A586E58BE483CCCBF882 /* Pods-TodoClient.release.xcconfig */,
-				6B96408C442D0C913C969ABF /* Pods-TodoClientContractTests.debug.xcconfig */,
-				EDFA3F91EFD7B79B6299149E /* Pods-TodoClientContractTests.release.xcconfig */,
-				A5893A706C262F0124E7D63C /* Pods-TodoClientTests.debug.xcconfig */,
-				3DE216584F20FCC8ACC74F02 /* Pods-TodoClientTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		EE5E44688A53241EBD380B20 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CBB97A3F60C07D97D857BF89 /* Pods_TodoClient.framework */,
-				D1A61C909C643076021B69AA /* Pods_TodoClientContractTests.framework */,
-				4F5C94A80797EC5806C7C91C /* Pods_TodoClientTests.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -601,7 +561,6 @@
 		};
 		2E9420641D3DA8C5007324BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6B2E6BAC16EE0AEAAAF39D0 /* Pods-TodoClient.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -620,7 +579,6 @@
 		};
 		2E9420651D3DA8C5007324BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C00A586E58BE483CCCBF882 /* Pods-TodoClient.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
@@ -638,7 +596,6 @@
 		};
 		2E9420671D3DA8C5007324BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A5893A706C262F0124E7D63C /* Pods-TodoClientTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -649,7 +606,6 @@
 		};
 		2E9420681D3DA8C5007324BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3DE216584F20FCC8ACC74F02 /* Pods-TodoClientTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -660,7 +616,6 @@
 		};
 		2EB60E5F1D42754900EF2A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B96408C442D0C913C969ABF /* Pods-TodoClientContractTests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -671,7 +626,6 @@
 		};
 		2EB60E601D42754900EF2A54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EDFA3F91EFD7B79B6299149E /* Pods-TodoClientContractTests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

@@ -1,6 +1,0 @@
-framework module Pods_TodoClient {
-  umbrella header "Pods-TodoClient-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -1,6 +1,0 @@
-framework module Pods_TodoClientContractTests {
-  umbrella header "Pods-TodoClientContractTests-umbrella.h"
-
-  export *
-  module * { export * }
-}

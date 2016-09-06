@@ -1,6 +1,0 @@
-framework module PactConsumerSwift {
-  umbrella header "PactConsumerSwift-umbrella.h"
-
-  export *
-  module * { export * }
-}
