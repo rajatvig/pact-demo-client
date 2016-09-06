@@ -9,17 +9,17 @@ services:
     environment:
       PACT_BROKER_DATABASE_USERNAME: pactbroker
       PACT_BROKER_DATABASE_PASSWORD: password
-      PACT_BROKER_DATABASE_HOST: db.docker.local
+      PACT_BROKER_DATABASE_HOST: brokerdb.docker.local
       PACT_BROKER_DATABASE_NAME: pactbroker
     ports:
       - "80:80"
     depends_on:
-      - db
+      - pact_broker_db
     links:
-      - db:db.docker.local
-  db:
+      - pact_broker_db:brokerdb.docker.local
+  pact_broker_db:
     image: postgres
-    hostname: db
+    hostname: brokerdb
     domainname: docker.local
     environment:
       POSTGRES_PASSWORD: password
@@ -27,7 +27,7 @@ services:
       POSTGRES_DB: pactbroker
     ports:
       - "5432:5432"
-  pactbroker_client:
+  pact_broker_client:
     image: rajatvig/pactbroker-client:0.1.1
     environment:
       CONSUMER_VERSION: 0.1.0
@@ -44,10 +44,31 @@ services:
     domainname: docker.local
     environment:
       pact_urls: http://broker.docker.local/pacts/provider/TodoBackendService/consumer/TodoiOSClient/latest
-      provider_base_url: http://10.37.129.2:3000
-      provider_states_url: http://10.37.129.2:3000/states
-      provider_states_active_url: http://10.37.129.2:3000/states/active
+      provider_base_url: http://provider.docker.local:3000/
+      provider_states_url: http://provider.docker.local:3000/states
+      provider_states_active_url: http://provider.docker.local:3000/states/active
     depends_on:
       - pact_broker
+      - provider
     links:
       - pact_broker:broker.docker.local
+      - provider:provider.docker.local
+  provider:
+    image: rajatvig/todobackendservice:latest
+    hostname: provider
+    domainname: docker.local
+    environment:
+      NODE_ENV: test
+      REDIS_URL: redis.docker.local
+    ports:
+      - "3000:3000"
+    depends_on:
+      - provider_db
+    links:
+      - provider_db:redis.docker.local
+  provider_db:
+    image: redis
+    hostname: redis
+    domainname: docker.local
+    ports:
+      - "6379:6379"

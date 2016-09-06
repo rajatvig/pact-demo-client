@@ -39,7 +39,7 @@ contract_tests: stop
 	$(DC) stop
 
 pact_publish:
-	$(DC_P) run pactbroker_client
+	$(DC_P) run pact_broker_client
 
 pact_verify:
 	$(DC_P) run pact_broker_proxy
