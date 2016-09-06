@@ -15,7 +15,7 @@ class TodoClientSpec: QuickSpec {
                                .pathForResource("todo_list", ofType: "json")!
 
                 let data: NSData = NSData(contentsOfFile: filePath)!
-                let url = NSURL.init(string: "http://localhost/todos")!
+                let url = NSURL(string: "http://localhost/todos")!
 
                 stub(isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(data: data, statusCode: 200, headers: ["Content-Type": "application/json"])
@@ -40,7 +40,7 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails get all the todos") {
-                let url = NSURL.init(string: "http://localhost/todos")!
+                let url = NSURL(string: "http://localhost/todos")!
 
                 stub(isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
@@ -67,7 +67,7 @@ class TodoClientSpec: QuickSpec {
                 let todoItemId = NSUUID().UUIDString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "http://localhost\(todoItemPath)")!
+                let url = NSURL(string: "http://localhost\(todoItemPath)")!
                 let jsonObj = [
                     "title": "blah",
                     "order": 523,
@@ -101,7 +101,7 @@ class TodoClientSpec: QuickSpec {
                 let todoItemId = NSUUID().UUIDString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "http://localhost/\(todoItemPath)")!
+                let url = NSURL(string: "http://localhost/\(todoItemPath)")!
 
                 stub(isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
@@ -125,7 +125,7 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("creates the todoitem") {
-                let url = NSURL.init(string: "http://localhost/todos")!
+                let url = NSURL(string: "http://localhost/todos")!
                 let jsonObj = [
                     "name": "todo1",
                     "order": 543
@@ -166,7 +166,7 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails to create the todoitem") {
-                let url = NSURL.init(string: "http://localhost/todos")!
+                let url = NSURL(string: "http://localhost/todos")!
 
                 stub(isHost("localhost") && isPath("/todos") && isMethodPOST()) { _ in
                     return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
@@ -194,7 +194,7 @@ class TodoClientSpec: QuickSpec {
                 let todoItemId = NSUUID().UUIDString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "http://localhost\(todoItemPath)")!
+                let url = NSURL(string: "http://localhost\(todoItemPath)")!
 
                 let jsonObj = [
                     "title": "blah is good",
@@ -240,7 +240,7 @@ class TodoClientSpec: QuickSpec {
                 let todoItemId = NSUUID().UUIDString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "http://localhost\(todoItemPath)")!
+                let url = NSURL(string: "http://localhost\(todoItemPath)")!
 
                 stub(isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { _ in
                     return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
@@ -268,7 +268,7 @@ class TodoClientSpec: QuickSpec {
                 let todoItemId = NSUUID().UUIDString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "http://localhost\(todoItemPath)")!
+                let url = NSURL(string: "http://localhost\(todoItemPath)")!
 
                 stub(isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
                     return OHHTTPStubsResponse(JSONObject: [], statusCode: 202, headers: nil)
@@ -295,7 +295,7 @@ class TodoClientSpec: QuickSpec {
                 let todoItemId = NSUUID().UUIDString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "http://localhost/\(todoItemPath)")!
+                let url = NSURL(string: "http://localhost/\(todoItemPath)")!
 
                 stub(isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
                     return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)

@@ -36,7 +36,7 @@ class TodoClientContractSpec: QuickSpec {
                                 "order": 1
                             ]]))
 
-                let url = NSURL.init(string: "\(todoBackendService!.baseUrl)/todos")!
+                let url = NSURL(string: "\(todoBackendService!.baseUrl)/todos")!
 
                 var complete: Bool = false
 
@@ -88,7 +88,7 @@ class TodoClientContractSpec: QuickSpec {
                             "order": 1
                         ]))
 
-                let url = NSURL.init(string: "\(todoBackendService!.baseUrl)\(todoItemPath)")!
+                let url = NSURL(string: "\(todoBackendService!.baseUrl)\(todoItemPath)")!
 
                 var complete: Bool = false
 
@@ -123,21 +123,23 @@ class TodoClientContractSpec: QuickSpec {
             }
 
             it("delete an item") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = 1
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL.init(string: "\(todoBackendService!.baseUrl)/\(todoItemPath)")!
+                let url = NSURL(string: "\(todoBackendService!.baseUrl)/\(todoItemPath)")!
 
                 var complete: Bool = false
 
-                todoBackendService!.uponReceiving("a request to delete a todo item")
-                  .withRequest(
-                      method: .DELETE,
-                      path: todoItemPath,
-                      headers: ["Accept": "application/json"])
-                  .willRespondWith(
-                      status: 200,
-                      headers: nil)
+                todoBackendService!
+                    .given("a todoitem with id \(todoItemId) exists")
+                    .uponReceiving("a request to delete a todo item")
+                    .withRequest(
+                        method: .DELETE,
+                        path: todoItemPath,
+                        headers: ["Accept": "application/json"])
+                    .willRespondWith(
+                        status: 200,
+                        headers: nil)
 
                 todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.deleteTodoItem(url,
