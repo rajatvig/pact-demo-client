@@ -21,7 +21,7 @@ clean: stop
 
 install:
 	$(RBENV) $(BUNDLE) install
-	$(RBENV) $(BUNDLE) pod install
+	carthage bootstrap --platform iOS --no-use-binaries
 
 lint:
 	$(FASTLANE) lint

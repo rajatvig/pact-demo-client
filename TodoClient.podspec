@@ -24,5 +24,4 @@ Consumer driven contract testing using Pact
 
   s.dependency "Alamofire", "~> 3.4"
   s.dependency "SwiftyJSON", "~> 2.3"
-  s.dependency 'SwiftDate', "~> 3.0"
 end

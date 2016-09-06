@@ -21,6 +21,16 @@
 		2E9420871D3DA96B007324BB /* TodoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9420861D3DA96B007324BB /* TodoClient.swift */; };
 		2E94208B1D3DA9CD007324BB /* TodoClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E94208A1D3DA9CD007324BB /* TodoClientSpec.swift */; };
 		2EB60E641D42799B00EF2A54 /* TodoClientContractSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */; };
+		2EC197301D7F47E90052951B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC1972F1D7F47E90052951B /* Alamofire.framework */; };
+		2EC197321D7F47F00052951B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197311D7F47F00052951B /* SwiftyJSON.framework */; };
+		2EC197341D7F4B450052951B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197331D7F4B450052951B /* Nimble.framework */; };
+		2EC197361D7F4B480052951B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197351D7F4B480052951B /* Quick.framework */; };
+		2EC197381D7F4B4C0052951B /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197371D7F4B4C0052951B /* OHHTTPStubs.framework */; };
+		2EC1973A1D7F4B720052951B /* BrightFutures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197391D7F4B720052951B /* BrightFutures.framework */; };
+		2EC1973B1D7F4B770052951B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197331D7F4B450052951B /* Nimble.framework */; };
+		2EC1973D1D7F4B7B0052951B /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC1973C1D7F4B7B0052951B /* Result.framework */; };
+		2EC1973F1D7F4B810052951B /* PactConsumerSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC1973E1D7F4B810052951B /* PactConsumerSwift.framework */; };
+		2EC197401D7F4B8A0052951B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197351D7F4B480052951B /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +62,14 @@
 		2E94208A1D3DA9CD007324BB /* TodoClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoClientSpec.swift; path = Tests/TodoClientSpec.swift; sourceTree = "<group>"; };
 		2EB60E571D42754900EF2A54 /* TodoClient.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoClient.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoClientContractSpec.swift; path = Tests/TodoClientContractSpec.swift; sourceTree = "<group>"; };
+		2EC1972F1D7F47E90052951B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		2EC197311D7F47F00052951B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		2EC197331D7F4B450052951B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		2EC197351D7F4B480052951B /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		2EC197371D7F4B4C0052951B /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
+		2EC197391D7F4B720052951B /* BrightFutures.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BrightFutures.framework; path = Carthage/Build/iOS/BrightFutures.framework; sourceTree = "<group>"; };
+		2EC1973C1D7F4B7B0052951B /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
+		2EC1973E1D7F4B810052951B /* PactConsumerSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PactConsumerSwift.framework; path = Carthage/Build/iOS/PactConsumerSwift.framework; sourceTree = "<group>"; };
 		2EE67CC31D4C2B0500093142 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +78,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC197301D7F47E90052951B /* Alamofire.framework in Frameworks */,
+				2EC197321D7F47F00052951B /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +87,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC197361D7F4B480052951B /* Quick.framework in Frameworks */,
+				2EC197341D7F4B450052951B /* Nimble.framework in Frameworks */,
+				2EC197381D7F4B4C0052951B /* OHHTTPStubs.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +97,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EC1973D1D7F4B7B0052951B /* Result.framework in Frameworks */,
+				2EC1973A1D7F4B720052951B /* BrightFutures.framework in Frameworks */,
+				2EC197401D7F4B8A0052951B /* Quick.framework in Frameworks */,
+				2EC1973B1D7F4B770052951B /* Nimble.framework in Frameworks */,
+				2EC1973F1D7F4B810052951B /* PactConsumerSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +145,7 @@
 		2E9420291D3DA854007324BB = {
 			isa = PBXGroup;
 			children = (
+				2EBB9DF71D7F3F8400905FC0 /* Frameworks */,
 				2E9420851D3DA959007324BB /* Sources */,
 				2E9420891D3DA9AD007324BB /* Tests */,
 				2E9420341D3DA854007324BB /* Products */,
@@ -154,6 +183,21 @@
 			name = Tests;
 			sourceTree = "<group>";
 		};
+		2EBB9DF71D7F3F8400905FC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EC1973E1D7F4B810052951B /* PactConsumerSwift.framework */,
+				2EC1973C1D7F4B7B0052951B /* Result.framework */,
+				2EC197391D7F4B720052951B /* BrightFutures.framework */,
+				2EC197371D7F4B4C0052951B /* OHHTTPStubs.framework */,
+				2EC197351D7F4B480052951B /* Quick.framework */,
+				2EC197331D7F4B450052951B /* Nimble.framework */,
+				2EC197311D7F47F00052951B /* SwiftyJSON.framework */,
+				2EC1972F1D7F47E90052951B /* Alamofire.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -171,12 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E9420631D3DA8C5007324BB /* Build configuration list for PBXNativeTarget "TodoClient" */;
 			buildPhases = (
-				2E8737C96164DBC1EFE41ACC /* [CP] Check Pods Manifest.lock */,
 				2E94204D1D3DA8C5007324BB /* Sources */,
 				2E94204E1D3DA8C5007324BB /* Frameworks */,
 				2E94204F1D3DA8C5007324BB /* Headers */,
 				2E9420501D3DA8C5007324BB /* Resources */,
-				752184B2CBB49B8795ACE287 /* [CP] Copy Pods Resources */,
+				2EF44F561D7F5F0D005261D9 /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,12 +234,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2E9420661D3DA8C5007324BB /* Build configuration list for PBXNativeTarget "TodoClientTests" */;
 			buildPhases = (
-				78930835E7676FDF91DDFED6 /* [CP] Check Pods Manifest.lock */,
 				2E9420571D3DA8C5007324BB /* Sources */,
 				2E9420581D3DA8C5007324BB /* Frameworks */,
 				2E9420591D3DA8C5007324BB /* Resources */,
-				94BBF15F5B26C96A37E99A9D /* [CP] Embed Pods Frameworks */,
-				191B078C45D03F472BB698F0 /* [CP] Copy Pods Resources */,
+				2EF44F571D7F5F5C005261D9 /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,12 +253,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EB60E611D42754900EF2A54 /* Build configuration list for PBXNativeTarget "TodoClientContractTests" */;
 			buildPhases = (
-				093259EFF98CAB10C4F0780A /* [CP] Check Pods Manifest.lock */,
 				2EB60E531D42754900EF2A54 /* Sources */,
 				2EB60E541D42754900EF2A54 /* Frameworks */,
 				2EB60E551D42754900EF2A54 /* Resources */,
-				54D91D93AFE6E624BAE113E8 /* [CP] Embed Pods Frameworks */,
-				A27776AA69EDEE9F7EB59DF4 /* [CP] Copy Pods Resources */,
+				2EF44F551D7F5EBB005261D9 /* Copy Carthage Frameworks */,
 			);
 			buildRules = (
 			);
@@ -295,125 +334,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		093259EFF98CAB10C4F0780A /* [CP] Check Pods Manifest.lock */ = {
+		2EF44F551D7F5EBB005261D9 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/BrightFutures.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/PactConsumerSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "Copy Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
+			shellScript = "carthage copy-frameworks";
 		};
-		191B078C45D03F472BB698F0 /* [CP] Copy Pods Resources */ = {
+		2EF44F561D7F5F0D005261D9 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "Copy Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodoClientTests/Pods-TodoClientTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "carthage copy-frameworks";
 		};
-		2E8737C96164DBC1EFE41ACC /* [CP] Check Pods Manifest.lock */ = {
+		2EF44F571D7F5F5C005261D9 /* Copy Carthage Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/OHHTTPStubs.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "Copy Carthage Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		54D91D93AFE6E624BAE113E8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodoClientContractTests/Pods-TodoClientContractTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		752184B2CBB49B8795ACE287 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodoClient/Pods-TodoClient-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		78930835E7676FDF91DDFED6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		94BBF15F5B26C96A37E99A9D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodoClientTests/Pods-TodoClientTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A27776AA69EDEE9F7EB59DF4 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TodoClientContractTests/Pods-TodoClientContractTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "carthage copy-frameworks";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -567,6 +542,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -585,6 +564,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -597,6 +580,10 @@
 		2E9420671D3DA8C5007324BB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientTests;
@@ -607,6 +594,10 @@
 		2E9420681D3DA8C5007324BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientTests;
@@ -617,6 +608,10 @@
 		2EB60E5F1D42754900EF2A54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientContractTests;
@@ -627,6 +622,10 @@
 		2EB60E601D42754900EF2A54 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientContractTests;
