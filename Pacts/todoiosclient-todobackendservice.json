@@ -1,0 +1,111 @@
+{
+  "consumer": {
+    "name": "TodoiOSClient"
+  },
+  "provider": {
+    "name": "TodoBackendService"
+  },
+  "interactions": [
+    {
+      "description": "a request for all todos",
+      "provider_state": "some todoitems exist",
+      "request": {
+        "method": "get",
+        "path": "/todos",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": [
+          {
+            "title": "blah",
+            "completed": false,
+            "order": 1,
+            "url": "http://localhost/todos/1"
+          }
+        ],
+        "matchingRules": {
+          "$.body": {
+            "min": 1
+          },
+          "$.body[*].*": {
+            "match": "type"
+          },
+          "$.body[*].title": {
+            "match": "type"
+          },
+          "$.body[*].completed": {
+            "match": "type"
+          },
+          "$.body[*].order": {
+            "match": "type"
+          },
+          "$.body[*].url": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request for a todoitem",
+      "provider_state": "a todoitem with id 1 exists",
+      "request": {
+        "method": "get",
+        "path": "/todos/1",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "title": "blah",
+          "completed": false,
+          "order": 1,
+          "url": "http://localhost/todos/1"
+        },
+        "matchingRules": {
+          "$.body.title": {
+            "match": "type"
+          },
+          "$.body.completed": {
+            "match": "type"
+          },
+          "$.body.order": {
+            "match": "type"
+          },
+          "$.body.url": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
+      "description": "a request to delete a todo item",
+      "provider_state": "a todoitem with id 1 exists",
+      "request": {
+        "method": "delete",
+        "path": "/todos/1",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "2.0.0"
+  }
+}
