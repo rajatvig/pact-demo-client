@@ -54,7 +54,7 @@ services:
       - pact_broker:broker.docker.local
       - provider:provider.docker.local
   provider:
-    image: rajatvig/todobackendservice:latest
+    image: rajatvig/todobackendservice:0.1.1-5
     hostname: provider
     domainname: docker.local
     environment:
