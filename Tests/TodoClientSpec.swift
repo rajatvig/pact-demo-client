@@ -151,7 +151,7 @@ class TodoClientSpec: QuickSpec {
                 var completionCalled = false
 
                 todoClient.createTodoItem(url,
-                                          todoItemData: JSON(jsonObj),
+                                          todoItemData: jsonObj,
                                           success: { (todoItem) in
                                               expect(todoItem).to(equal(expectedTodoItem))
                                               completionCalled = true
@@ -177,14 +177,14 @@ class TodoClientSpec: QuickSpec {
                 var completionCalled = false
 
                 todoClient.createTodoItem(url,
-                                   todoItemData: JSON([]),
-                                   success: { (_) in
-                                       completionCalled = true
-                                       expect(true).to(equal(false))
-                                   },
-                                   error: {
-                                       completionCalled = true
-                                   }
+                                          todoItemData: [:],
+                                          success: { (_) in
+                                              completionCalled = true
+                                              expect(true).to(equal(false))
+                                          },
+                                          error: {
+                                              completionCalled = true
+                                          }
                 )
 
                 expect(completionCalled).toEventually(beTrue(), timeout: 10)

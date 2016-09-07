@@ -24,12 +24,12 @@ public class TodoClient {
         )
     }
 
-    public func createTodoItem(url: NSURL, todoItemData: JSON, success: (TodoItem) -> Void, error: () -> Void) -> Void {
+    public func createTodoItem(url: NSURL, todoItemData: [String: AnyObject], success: (TodoItem) -> Void, error: () -> Void) -> Void {
         let headers = [
             "Accept": "application/json"
         ]
 
-        Alamofire.request(.POST, url, headers: headers, parameters: todoItemData.dictionaryObject, encoding: .JSON)
+        Alamofire.request(.POST, url, headers: headers, parameters: todoItemData, encoding: .JSON)
           .validate()
           .responseJSON { response in
             guard response.result.isSuccess else {

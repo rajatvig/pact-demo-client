@@ -43,7 +43,7 @@ class TodoClientContractSpec: QuickSpec {
                 todoBackendService!
                   .given("some todoitems exist")
                   .uponReceiving("a request for all todos")
-                   .withRequest(
+                  .withRequest(
                       method: .GET,
                       path: "/todos",
                       headers: ["Accept": "application/json"])
@@ -52,7 +52,7 @@ class TodoClientContractSpec: QuickSpec {
                       headers: ["Content-Type": "application/json; charset=utf-8"],
                       body: expectedResponse)
 
-                 todoBackendService!.run { (testComplete) -> Void in
+                todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.getTodoList(url,
                                             success: { (todoList) in
                                                 complete = true
@@ -64,6 +64,64 @@ class TodoClientContractSpec: QuickSpec {
                                                 testComplete()
                                                 expect(true).to(equal(false))
                                             }
+                    )
+                }
+
+                expect(complete).toEventually(beTrue())
+            }
+
+            it("creates a todoitem") {
+                let todosPath = "/todos"
+
+                let expectedResponse = [
+                    "title": Matcher.somethingLike("blah"),
+                    "url": Matcher.somethingLike("http://localhost/todos/1"),
+                    "completed": Matcher.somethingLike(false),
+                    "order": Matcher.somethingLike(1)
+                ]
+
+                let expectedTodoItem = TodoItem(JSON([
+                            "title": "blah",
+                            "url": "http://localhost/todos/1",
+                            "completed": false,
+                            "order": 1
+                        ]))
+
+                let postBody = [
+                    "title": "blah",
+                    "completed": false,
+                    "order": 1
+                ]
+
+                let url = NSURL(string: "\(todoBackendService!.baseUrl)\(todosPath)")!
+
+                var complete: Bool = false
+
+                todoBackendService!
+                  .uponReceiving("a request to create a todoitem")
+                  .withRequest(
+                      method: .POST,
+                      path: todosPath,
+                      headers: ["Content-Type": "application/json"],
+                      body: postBody)
+                  .willRespondWith(
+                      status: 201,
+                      headers: ["Content-Type": "application/json; charset=utf-8"],
+                      body: expectedResponse)
+
+                todoBackendService!.run { (testComplete) -> Void in
+                    todoClient!.createTodoItem(url,
+                                               todoItemData: postBody,
+                                               success: { (todoItem) in
+                                                   complete = true
+                                                   testComplete()
+                                                   expect(todoItem).to(equal(expectedTodoItem))
+                                               },
+                                               error: { (_) in
+                                                   complete = true
+                                                   testComplete()
+                                                   expect(true).to(equal(false))
+                                               }
                     )
                 }
 
@@ -93,8 +151,8 @@ class TodoClientContractSpec: QuickSpec {
                 var complete: Bool = false
 
                 todoBackendService!
-                    .given("a todoitem with id \(todoItemId) exists")
-                    .uponReceiving("a request for a todoitem")
+                  .given("a todoitem with id \(todoItemId) exists")
+                  .uponReceiving("a request for a todoitem")
                   .withRequest(
                       method: .GET,
                       path: todoItemPath,
@@ -106,16 +164,16 @@ class TodoClientContractSpec: QuickSpec {
 
                 todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.getTodoItem(url,
-                                           success: { (todoItem) in
-                                               complete = true
-                                               testComplete()
-                                               expect(todoItem).to(equal(expectedTodoItem))
-                                           },
-                                           error: { (_) in
-                                               complete = true
-                                               testComplete()
-                                               expect(true).to(equal(false))
-                                           }
+                                            success: { (todoItem) in
+                                                complete = true
+                                                testComplete()
+                                                expect(todoItem).to(equal(expectedTodoItem))
+                                            },
+                                            error: { (_) in
+                                                complete = true
+                                                testComplete()
+                                                expect(true).to(equal(false))
+                                            }
                     )
                 }
 
@@ -131,27 +189,27 @@ class TodoClientContractSpec: QuickSpec {
                 var complete: Bool = false
 
                 todoBackendService!
-                    .given("a todoitem with id \(todoItemId) exists")
-                    .uponReceiving("a request to delete a todo item")
-                    .withRequest(
-                        method: .DELETE,
-                        path: todoItemPath,
-                        headers: ["Accept": "application/json"])
-                    .willRespondWith(
-                        status: 200,
-                        headers: nil)
+                  .given("a todoitem with id \(todoItemId) exists")
+                  .uponReceiving("a request to delete a todo item")
+                  .withRequest(
+                      method: .DELETE,
+                      path: todoItemPath,
+                      headers: ["Accept": "application/json"])
+                  .willRespondWith(
+                      status: 200,
+                      headers: nil)
 
                 todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.deleteTodoItem(url,
-                                              success: { () in
-                                                  complete = true
-                                                  testComplete()
-                                              },
-                                              error: {
-                                                  complete = true
-                                                  testComplete()
-                                                  expect(true).to(equal(false))
-                                              }
+                                               success: { () in
+                                                   complete = true
+                                                   testComplete()
+                                               },
+                                               error: {
+                                                   complete = true
+                                                   testComplete()
+                                                   expect(true).to(equal(false))
+                                               }
                     )
                 }
 

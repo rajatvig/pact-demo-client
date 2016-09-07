@@ -52,6 +52,47 @@
       }
     },
     {
+      "description": "a request to create a todoitem",
+      "request": {
+        "method": "post",
+        "path": "/todos",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "title": "blah",
+          "completed": false,
+          "order": 1
+        }
+      },
+      "response": {
+        "status": 201,
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "title": "blah",
+          "completed": false,
+          "order": 1,
+          "url": "http://localhost/todos/1"
+        },
+        "matchingRules": {
+          "$.body.title": {
+            "match": "type"
+          },
+          "$.body.completed": {
+            "match": "type"
+          },
+          "$.body.order": {
+            "match": "type"
+          },
+          "$.body.url": {
+            "match": "type"
+          }
+        }
+      }
+    },
+    {
       "description": "a request for a todoitem",
       "provider_state": "a todoitem with id 1 exists",
       "request": {

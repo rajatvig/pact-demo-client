@@ -47,8 +47,9 @@ The provider is akin to the many [Todo Backend](http://todobackend.com/) Service
 The specific bit of the contract we are interested in is as follows
 
 1. Get a list of Todo Items at `/todos`
-2. Get a specific Todo Item at `/todo/:id`
-3. Deletes a specific Todo Item at `/todo/:id`
+2. Get a specific Todo Item at `/todos/:id`
+3. Create a Todo Item at `/todos`
+4. Deletes a specific Todo Item at `/todos/:id`
 
 A JSON representation of the TodoItem is
 
