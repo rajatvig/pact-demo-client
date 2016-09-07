@@ -1,6 +1,5 @@
 NAME=TodoClient
 
-RBENV=rbenv exec
 BUNDLE=bundle exec
 FASTLANE=$(BUNDLE) fastlane
 
@@ -20,7 +19,7 @@ clean: stop
 	$(DC_P) rm --all -f -v
 
 install:
-	$(RBENV) $(BUNDLE) install
+	$(BUNDLE) install
 	carthage bootstrap --platform iOS --no-use-binaries
 
 lint:
