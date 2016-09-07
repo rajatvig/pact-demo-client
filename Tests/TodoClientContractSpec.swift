@@ -13,10 +13,7 @@ class TodoClientContractSpec: QuickSpec {
             beforeEach {
                 todoBackendService = MockService(
                         provider: "TodoBackendService",
-                        consumer: "TodoiOSClient",
-                        done: { result in
-                            expect(result).to(equal(PactVerificationResult.Passed))
-                        })
+                        consumer: "TodoiOSClient")
 
                 todoClient = TodoClient()
             }
@@ -38,8 +35,6 @@ class TodoClientContractSpec: QuickSpec {
 
                 let url = NSURL(string: "\(todoBackendService!.baseUrl)/todos")!
 
-                var complete: Bool = false
-
                 todoBackendService!
                   .given("some todoitems exist")
                   .uponReceiving("a request for all todos")
@@ -55,19 +50,15 @@ class TodoClientContractSpec: QuickSpec {
                 todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.getTodoList(url,
                                             success: { (todoList) in
-                                                complete = true
-                                                testComplete()
                                                 expect(todoList).to(equal(expectedTodoList))
+                                                testComplete()
                                             },
                                             error: {
-                                                complete = true
-                                                testComplete()
                                                 expect(true).to(equal(false))
+                                                testComplete()
                                             }
                     )
                 }
-
-                expect(complete).toEventually(beTrue())
             }
 
             it("creates a todoitem") {
@@ -95,8 +86,6 @@ class TodoClientContractSpec: QuickSpec {
 
                 let url = NSURL(string: "\(todoBackendService!.baseUrl)\(todosPath)")!
 
-                var complete: Bool = false
-
                 todoBackendService!
                   .uponReceiving("a request to create a todoitem")
                   .withRequest(
@@ -113,19 +102,15 @@ class TodoClientContractSpec: QuickSpec {
                     todoClient!.createTodoItem(url,
                                                todoItemData: postBody,
                                                success: { (todoItem) in
-                                                   complete = true
-                                                   testComplete()
                                                    expect(todoItem).to(equal(expectedTodoItem))
+                                                   testComplete()
                                                },
                                                error: { (_) in
-                                                   complete = true
-                                                   testComplete()
                                                    expect(true).to(equal(false))
+                                                   testComplete()
                                                }
                     )
                 }
-
-                expect(complete).toEventually(beTrue())
             }
 
             it("gets one todoitem") {
@@ -148,8 +133,6 @@ class TodoClientContractSpec: QuickSpec {
 
                 let url = NSURL(string: "\(todoBackendService!.baseUrl)\(todoItemPath)")!
 
-                var complete: Bool = false
-
                 todoBackendService!
                   .given("a todoitem with id \(todoItemId) exists")
                   .uponReceiving("a request for a todoitem")
@@ -165,19 +148,15 @@ class TodoClientContractSpec: QuickSpec {
                 todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.getTodoItem(url,
                                             success: { (todoItem) in
-                                                complete = true
-                                                testComplete()
                                                 expect(todoItem).to(equal(expectedTodoItem))
+                                                testComplete()
                                             },
                                             error: { (_) in
-                                                complete = true
-                                                testComplete()
                                                 expect(true).to(equal(false))
+                                                testComplete()
                                             }
                     )
                 }
-
-                expect(complete).toEventually(beTrue())
             }
 
             it("delete an item") {
@@ -185,8 +164,6 @@ class TodoClientContractSpec: QuickSpec {
                 let todoItemPath = "/todos/\(todoItemId)"
 
                 let url = NSURL(string: "\(todoBackendService!.baseUrl)/\(todoItemPath)")!
-
-                var complete: Bool = false
 
                 todoBackendService!
                   .given("a todoitem with id \(todoItemId) exists")
@@ -202,18 +179,14 @@ class TodoClientContractSpec: QuickSpec {
                 todoBackendService!.run { (testComplete) -> Void in
                     todoClient!.deleteTodoItem(url,
                                                success: { () in
-                                                   complete = true
                                                    testComplete()
                                                },
                                                error: {
-                                                   complete = true
-                                                   testComplete()
                                                    expect(true).to(equal(false))
+                                                   testComplete()
                                                }
                     )
                 }
-
-                expect(complete).toEventually(beTrue())
             }
 
             describe("zzz") {
