@@ -3,6 +3,7 @@ import Alamofire
 import SwiftyJSON
 
 public class TodoClient {
+    public init() {}
 
     public func getTodoList(url: NSURL, success: (TodoList) -> Void, error: () -> Void) -> Void {
         makeCall(

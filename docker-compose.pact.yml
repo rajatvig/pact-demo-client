@@ -1,6 +1,7 @@
 version: '2'
 volumes:
   pacts:
+  brokerdata:
 services:
   pact_broker:
     image: rajatvig/pactbroker:0.1.3
@@ -25,6 +26,8 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_USER: pactbroker
       POSTGRES_DB: pactbroker
+    volumes:
+      - brokerdata:/var/lib/postgresql/data
     ports:
       - "5432:5432"
   pact_broker_client:

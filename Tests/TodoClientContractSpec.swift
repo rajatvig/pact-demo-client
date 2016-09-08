@@ -2,6 +2,7 @@ import SwiftyJSON
 import Quick
 import Nimble
 import PactConsumerSwift
+import TodoClient
 
 class TodoClientContractSpec: QuickSpec {
 

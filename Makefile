@@ -1,7 +1,6 @@
 NAME=TodoClient
 
-BUNDLE=bundle exec
-FASTLANE=$(BUNDLE) fastlane
+FASTLANE=bundle exec fastlane
 
 DC=docker-compose
 DC_P=docker-compose -f docker-compose.pact.yml
@@ -19,28 +18,28 @@ clean: stop
 	$(DC_P) rm --all -f -v
 
 install:
-	$(BUNDLE) install
+	bundle install
 	carthage bootstrap --platform iOS --no-use-binaries
 
 lint:
 	$(FASTLANE) lint
 
-test_local: stop
+start_mock: stop
 	$(DC) up -d
+
+test_local: start_mock
 	$(FASTLANE) test_local
 
 test:
 	$(FASTLANE) test
 
-contract_tests: stop
-	$(DC) up -d
+contract_tests: start_mock
 	$(FASTLANE) contract_tests
-	$(DC) stop
 
-pact_publish:
+pact_publish: stop
 	$(DC_P) run pact_broker_client
 
-pact_verify:
+pact_verify: stop
 	$(DC_P) run pact_broker_proxy
 
 all: clean lint test contract_tests pact_publish pact_verify

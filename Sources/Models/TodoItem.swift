@@ -1,11 +1,11 @@
 import Foundation
 import SwiftyJSON
 
-public class TodoItem: CustomStringConvertible, Equatable {
-    let title: String
-    let completed: Bool
-    let order: Int?
-    let url: NSURL?
+public struct TodoItem: CustomStringConvertible, Equatable {
+    public let title: String
+    public let completed: Bool
+    public let order: Int?
+    public let url: NSURL?
 
     public init(_ jsonData: JSON) {
         self.title = jsonData["title"].stringValue

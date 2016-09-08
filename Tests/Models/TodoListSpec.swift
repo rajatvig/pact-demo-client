@@ -2,6 +2,7 @@ import Foundation
 import SwiftyJSON
 import Quick
 import Nimble
+import TodoClient
 
 class TodoListSpec: QuickSpec {
     override func spec() {

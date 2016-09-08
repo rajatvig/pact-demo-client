@@ -2,6 +2,7 @@ import SwiftyJSON
 import Quick
 import Nimble
 import OHHTTPStubs
+import TodoClient
 
 class TodoClientSpec: QuickSpec {
     override func spec() {

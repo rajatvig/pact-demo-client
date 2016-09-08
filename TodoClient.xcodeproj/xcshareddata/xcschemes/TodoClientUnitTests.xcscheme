@@ -9,14 +9,14 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E9420511D3DA8C5007324BB"
-               BuildableName = "TodoClient.framework"
-               BlueprintName = "TodoClient"
+               BlueprintIdentifier = "2E94205A1D3DA8C5007324BB"
+               BuildableName = "TodoClientUnitTests.xctest"
+               BlueprintName = "TodoClientUnitTests"
                ReferencedContainer = "container:TodoClient.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,9 +26,29 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2E94205A1D3DA8C5007324BB"
+               BuildableName = "TodoClientUnitTests.xctest"
+               BlueprintName = "TodoClientUnitTests"
+               ReferencedContainer = "container:TodoClient.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "2E9420511D3DA8C5007324BB"
+            BuildableName = "TodoClient.framework"
+            BlueprintName = "TodoClient"
+            ReferencedContainer = "container:TodoClient.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -45,9 +65,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E9420511D3DA8C5007324BB"
-            BuildableName = "TodoClient.framework"
-            BlueprintName = "TodoClient"
+            BlueprintIdentifier = "2E94205A1D3DA8C5007324BB"
+            BuildableName = "TodoClientUnitTests.xctest"
+            BlueprintName = "TodoClientUnitTests"
             ReferencedContainer = "container:TodoClient.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,15 +80,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E9420511D3DA8C5007324BB"
-            BuildableName = "TodoClient.framework"
-            BlueprintName = "TodoClient"
-            ReferencedContainer = "container:TodoClient.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
