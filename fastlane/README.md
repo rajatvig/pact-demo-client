@@ -5,24 +5,25 @@ fastlane documentation
 sudo gem install fastlane
 ```
 # Available Actions
-### lint
+## iOS
+### ios lint
 ```
-fastlane lint
-```
-
-### test_local
-```
-fastlane test_local
+fastlane ios lint
 ```
 
-### test
+### ios test_local
 ```
-fastlane test
+fastlane ios test_local
 ```
 
-### contract_tests
+### ios test
 ```
-fastlane contract_tests
+fastlane ios test
+```
+
+### ios contract_tests
+```
+fastlane ios contract_tests
 ```
 
 

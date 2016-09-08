@@ -1,22 +1,24 @@
-fastlane_version "1.100.0"
+fastlane_version "1.102.0"
 
 default_platform :ios
 
-lane :lint do
-  swiftlint
-end
+platform :ios do
+  lane :lint do
+    swiftlint
+  end
 
-lane :test_local do
-  scan(scheme: "TodoClient", clean: false, code_coverage: true, skip_slack: true)
-  xcov(scheme: "TodoClient", skip_slack: true)
-  scan(scheme: "TodoClientContractTests", clean: false, skip_slack: true)
-end
+  lane :test_local do
+    scan(scheme: "TodoClientUnitTests")
+    xcov(scheme: "TodoClientUnitTests", skip_slack: true)
+    scan(scheme: "TodoClientContractTests")
+  end
 
-lane :test do
-  scan(scheme: "TodoClient", clean: true, code_coverage: true, skip_slack: true)
-  xcov(scheme: "TodoClient", skip_slack: true)
-end
+  lane :test do
+    scan(scheme: "TodoClientUnitTests", clean: true, code_coverage: true, skip_slack: true)
+    xcov(scheme: "TodoClientUnitTests", skip_slack: true)
+  end
 
-lane :contract_tests do
-  scan(scheme: "TodoClientContractTests", clean: true, skip_slack: true)
+  lane :contract_tests do
+    scan(scheme: "TodoClientContractTests", clean: true, skip_slack: true)
+  end
 end
