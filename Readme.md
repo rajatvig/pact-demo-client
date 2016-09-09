@@ -59,35 +59,35 @@ Using Docker Compose allows us to have commands run list on the Docker Images wh
 
 1. Install the required RubyGems - Fastlane, Xcov, Scan
 >
-```bash
-make install
-```
+>```bash
+>make install
+>```
 
 2. Run all the Unit Tests
 >
-```bash
-make test
-```
+>```bash
+>make test
+>```
 
 3. Run all the Contract Tests
 >
-```bash
-make contract_tests
-```
+>```bash
+>make contract_tests
+>```
 
 4. Publish and Verify Contracts with the Provider
 >
-```bash
-make pact_publish pact_verify
-```
+>```bash
+>make pact_publish pact_verify
+>```
 >
 This will fetch the Docker Image for the [Pact Broker](https://hub.docker.com/r/rajatvig/pactbroker/), [Pact Verifier](https://hub.docker.com/r/dius/pact-provider-verifier-docker/), [Pact Publisher](https://hub.docker.com/r/rajatvig/pactbroker-client/) and the [Provider](https://hub.docker.com/r/rajatvig/todobackendservice/). Additionally, images for Postgres (used by Pact Broker) and Redis (used by Provider) will be fetched and run.
 
 5. Clean up
 >
-```bash
-make clean
-```
+>```bash
+>make clean
+>```
 
 ## About the Provider used
 
@@ -377,30 +377,30 @@ Aside from publishing a Docker Image for the Provider to enable ease of use when
 
 1. Declare supported States per consumer on `/states`
 >
-```bash
-# Request
-curl http://localhost:3000/states
-# Response
-{
-  "TodoiOSClient": [
-    "some todoitems exist",
-    "a todoitem with id 1 exists"
-  ]
-}
-```
+>```bash
+># Request
+>curl http://localhost:3000/states
+># Response
+>{
+>  "TodoiOSClient": [
+>    "some todoitems exist",
+>    "a todoitem with id 1 exists"
+>  ]
+>}
+>```
 > Provider states are supported per client
 
 2. Support POST on `/states/active`
 >
-```bash
-# Request
-curl 
+>```bash
+># Request
+>curl 
 >   -d'{"state":"some todoitems exist", "consumer": "TodoiOSClient"}' \
 >   -H 'Content-Type: application/json' \
 >   -X POST 
 >   "http://localhost:3000/states/active"
-```
+>```
 
 ## Extras
-1. The project uses [Fastlane](https://fastlane.tools/) to define lanes and uses appropriate Fastlane Tools. [Fastfile](https://github.com/rajatvig/pact-demo-client/blob/master/fastlane/Fastfile)
+1. The project uses [Fastlane](https://fastlane.tools/) to define lanes and uses appropriate Fastlane Tools. Link to the [Fastfile](https://github.com/rajatvig/pact-demo-client/blob/master/fastlane/Fastfile).
 2. The project has a valid [PodSpec](https://github.com/rajatvig/pact-demo-client/blob/master/TodoClient.podspec) that can be published to CocoaPods.
