@@ -1,6 +1,5 @@
 version: '2'
 volumes:
-  pacts:
   brokerdata:
 services:
   pact_broker:
@@ -36,7 +35,7 @@ services:
       CONSUMER_VERSION: 0.1.0
       URI_BROKER: http://broker.docker.local
     volumes:
-      - ./pacts:/pacts
+      - ./Pacts:/pacts
     depends_on:
       - pact_broker
     links:
