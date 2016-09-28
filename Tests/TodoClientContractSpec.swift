@@ -34,7 +34,7 @@ class TodoClientContractSpec: QuickSpec {
                                 "order": 1
                             ]]))
 
-                let url = NSURL(string: "\(todoBackendService!.baseUrl)/todos")!
+                let url = URL(string: "\(todoBackendService!.baseUrl)/todos")!
 
                 todoBackendService!
                   .given("some todoitems exist")
@@ -49,7 +49,7 @@ class TodoClientContractSpec: QuickSpec {
                       body: expectedResponse)
 
                 todoBackendService!.run { (testComplete) -> Void in
-                    todoClient!.getTodoList(url,
+                    todoClient!.getTodoList(url: url,
                                             success: { (todoList) in
                                                 expect(todoList).to(equal(expectedTodoList))
                                                 testComplete()
@@ -83,9 +83,9 @@ class TodoClientContractSpec: QuickSpec {
                     "title": "blah",
                     "completed": false,
                     "order": 1
-                ]
+                ] as [String : Any]
 
-                let url = NSURL(string: "\(todoBackendService!.baseUrl)\(todosPath)")!
+                let url = URL(string: "\(todoBackendService!.baseUrl)\(todosPath)")!
 
                 todoBackendService!
                   .uponReceiving("a request to create a todoitem")
@@ -100,7 +100,7 @@ class TodoClientContractSpec: QuickSpec {
                       body: expectedResponse)
 
                 todoBackendService!.run { (testComplete) -> Void in
-                    todoClient!.createTodoItem(url,
+                    todoClient!.createTodoItem(url: url,
                                                todoItemData: postBody,
                                                success: { (todoItem) in
                                                    expect(todoItem).to(equal(expectedTodoItem))
@@ -132,7 +132,7 @@ class TodoClientContractSpec: QuickSpec {
                             "order": 1
                         ]))
 
-                let url = NSURL(string: "\(todoBackendService!.baseUrl)\(todoItemPath)")!
+                let url = URL(string: "\(todoBackendService!.baseUrl)\(todoItemPath)")!
 
                 todoBackendService!
                   .given("a todoitem with id \(todoItemId) exists")
@@ -147,7 +147,7 @@ class TodoClientContractSpec: QuickSpec {
                       body: expectedResponse)
 
                 todoBackendService!.run { (testComplete) -> Void in
-                    todoClient!.getTodoItem(url,
+                    todoClient!.getTodoItem(url: url,
                                             success: { (todoItem) in
                                                 expect(todoItem).to(equal(expectedTodoItem))
                                                 testComplete()
@@ -164,7 +164,7 @@ class TodoClientContractSpec: QuickSpec {
                 let todoItemId = 1
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "\(todoBackendService!.baseUrl)/\(todoItemPath)")!
+                let url = URL(string: "\(todoBackendService!.baseUrl)/\(todoItemPath)")!
 
                 todoBackendService!
                   .given("a todoitem with id \(todoItemId) exists")
@@ -178,7 +178,7 @@ class TodoClientContractSpec: QuickSpec {
                       headers: nil)
 
                 todoBackendService!.run { (testComplete) -> Void in
-                    todoClient!.deleteTodoItem(url,
+                    todoClient!.deleteTodoItem(url: url,
                                                success: { () in
                                                    testComplete()
                                                },

@@ -8,13 +8,13 @@ class TodoListSpec: QuickSpec {
     override func spec() {
         describe("create") {
             it("should parse JSON") {
-                let todoItem1 = [
+                let todoItem1: [String: Any] = [
                     "title": "blah",
                     "order": 523,
                     "completed": false,
                     "url": "http://localhost/todos/1"
                     ]
-                let todoItem2 = [
+                let todoItem2: [String: Any] = [
                     "title": "blah",
                     "order": 524,
                     "completed": true,
@@ -30,13 +30,13 @@ class TodoListSpec: QuickSpec {
 
         describe("isEqual") {
             it("should be equal for same JSON") {
-                let todoItem1 = [
+                let todoItem1: [String: Any] = [
                     "title": "blah",
                     "order": 523,
                     "completed": false,
                     "url": "http://localhost/todos/1"
                 ]
-                let todoItem2 = [
+                let todoItem2: [String: Any] = [
                     "title": "blah",
                     "order": 524,
                     "completed": true,
@@ -48,13 +48,13 @@ class TodoListSpec: QuickSpec {
             }
 
             it("should not be equal for different JSON") {
-                let todoItem1 = [
+                let todoItem1: [String: Any] = [
                     "title": "blah",
                     "order": 523,
                     "completed": false,
                     "url": "http://localhost/todos/1"
                 ]
-                let todoItem2 = [
+                let todoItem2: [String: Any] = [
                     "title": "blah",
                     "order": 524,
                     "completed": true,

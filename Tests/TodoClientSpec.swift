@@ -12,21 +12,21 @@ class TodoClientSpec: QuickSpec {
 
         describe("todo client") {
             it("gets all the todos") {
-                let filePath = NSBundle.init(forClass: self.dynamicType)
-                               .pathForResource("todo_list", ofType: "json")!
+                let filePath = Bundle.init(for: type(of: self))
+                               .path(forResource: "todo_list", ofType: "json")!
 
                 let data: NSData = NSData(contentsOfFile: filePath)!
-                let url = NSURL(string: "http://localhost/todos")!
+                let url = URL(string: "http://localhost/todos")!
 
-                stub(isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
-                    return OHHTTPStubsResponse(data: data, statusCode: 200, headers: ["Content-Type": "application/json"])
+                stub(condition: isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
+                    return OHHTTPStubsResponse(data: data as Data, statusCode: 200, headers: ["Content-Type": "application/json"])
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.getTodoList(url,
+                todoClient.getTodoList(url: url,
                                        success: { (todoList) in
                                            completionCalled = true
                                            expect(todoList.todoItems).to(haveCount(11))
@@ -41,17 +41,17 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails get all the todos") {
-                let url = NSURL(string: "http://localhost/todos")!
+                let url = URL(string: "http://localhost/todos")!
 
-                stub(isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
+                stub(condition: isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.getTodoList(url,
+                todoClient.getTodoList(url: url,
                                        success: { (_) in
                                            completionCalled = true
                                            expect(true).to(equal(false))
@@ -65,26 +65,26 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("gets the todoitem") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = NSUUID().uuidString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "http://localhost\(todoItemPath)")!
-                let jsonObj = [
+                let url = URL(string: "http://localhost\(todoItemPath)")!
+                let jsonObj: [String: Any] = [
                     "title": "blah",
                     "order": 523,
                     "completed": false,
                     "url": "http://localhost\(todoItemPath)"
                 ]
 
-                stub(isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: jsonObj, statusCode: 200, headers: nil)
+                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: jsonObj, statusCode: 200, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.getTodoItem(url,
+                todoClient.getTodoItem(url: url,
                                        success: { (todoItem) in
                                            completionCalled = true
                                            expect(todoItem).to(equal(TodoItem(JSON(jsonObj))))
@@ -99,20 +99,20 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails get the todo") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = NSUUID().uuidString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "http://localhost/\(todoItemPath)")!
+                let url = URL(string: "http://localhost/\(todoItemPath)")!
 
-                stub(isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
+                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.getTodoItem(url,
+                todoClient.getTodoItem(url: url,
                                        success: { (_) in
                                            completionCalled = true
                                            expect(true).to(equal(false))
@@ -126,13 +126,13 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("creates the todoitem") {
-                let url = NSURL(string: "http://localhost/todos")!
-                let jsonObj = [
+                let url = URL(string: "http://localhost/todos")!
+                let jsonObj: [String: Any] = [
                     "name": "todo1",
                     "order": 543
                 ]
 
-                let responseJsonObj = [
+                let responseJsonObj: [String: Any] = [
                     "name": "todo1",
                     "order": 543,
                     "completed": false,
@@ -141,17 +141,18 @@ class TodoClientSpec: QuickSpec {
 
                 let expectedTodoItem = TodoItem(JSON(responseJsonObj))
 
-                stub(isHost("localhost") && isPath("/todos") && isMethodPOST()) { req in
-                    let postData = JSON(data: req.OHHTTPStubs_HTTPBody())
+                stub(condition: isHost("localhost") && isPath("/todos") && isMethodPOST()) { req in
+                    let request = req as NSURLRequest
+                    let postData = JSON(data: request.ohhttpStubs_HTTPBody())
                     expect(postData).to(equal(JSON(jsonObj)))
-                    return OHHTTPStubsResponse(JSONObject: responseJsonObj, statusCode: 201, headers: nil)
+                    return OHHTTPStubsResponse(jsonObject: responseJsonObj, statusCode: 201, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.createTodoItem(url,
+                todoClient.createTodoItem(url: url,
                                           todoItemData: jsonObj,
                                           success: { (todoItem) in
                                               expect(todoItem).to(equal(expectedTodoItem))
@@ -167,17 +168,17 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails to create the todoitem") {
-                let url = NSURL(string: "http://localhost/todos")!
+                let url = URL(string: "http://localhost/todos")!
 
-                stub(isHost("localhost") && isPath("/todos") && isMethodPOST()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
+                stub(condition: isHost("localhost") && isPath("/todos") && isMethodPOST()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.createTodoItem(url,
+                todoClient.createTodoItem(url: url,
                                           todoItemData: [:],
                                           success: { (_) in
                                               completionCalled = true
@@ -192,18 +193,18 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("updates the todoitem") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = NSUUID().uuidString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "http://localhost\(todoItemPath)")!
+                let url = URL(string: "http://localhost\(todoItemPath)")!
 
-                let jsonObj = [
+                let jsonObj: [String: Any] = [
                     "title": "blah is good",
                     "order": 523,
                     "completed": true
                 ]
 
-                let responseJsonObj = [
+                let responseJsonObj: [String: Any] = [
                     "name": "blah is good",
                     "order": 4523,
                     "completed": true,
@@ -212,18 +213,19 @@ class TodoClientSpec: QuickSpec {
 
                 let expectedTodoItem = TodoItem(JSON(responseJsonObj))
 
-                stub(isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { req in
-                    let postData = JSON(data: req.OHHTTPStubs_HTTPBody())
+                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { req in
+                    let request = req as NSURLRequest
+                    let postData = JSON(data: request.ohhttpStubs_HTTPBody())
                     expect(postData).to(equal(JSON(jsonObj)))
-                    return OHHTTPStubsResponse(JSONObject: responseJsonObj, statusCode: 200, headers: nil)
+                    return OHHTTPStubsResponse(jsonObject: responseJsonObj, statusCode: 200, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.updateTodoItem(url,
-                                          todoItemData: JSON(jsonObj),
+                todoClient.updateTodoItem(url: url,
+                                          todoItemData: jsonObj,
                                           success: { (todoItem) in
                                               expect(todoItem).to(equal(expectedTodoItem))
                                               completionCalled = true
@@ -238,21 +240,21 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails to update the todoitem") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = NSUUID().uuidString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "http://localhost\(todoItemPath)")!
+                let url = URL(string: "http://localhost\(todoItemPath)")!
 
-                stub(isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
+                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.updateTodoItem(url,
-                                          todoItemData: JSON([]),
+                todoClient.updateTodoItem(url: url,
+                                          todoItemData: [:] as [String: Any],
                                           success: { (_) in
                                               completionCalled = true
                                               expect(true).to(equal(false))
@@ -266,20 +268,20 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("deletes the todoitem") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = NSUUID().uuidString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "http://localhost\(todoItemPath)")!
+                let url = URL(string: "http://localhost\(todoItemPath)")!
 
-                stub(isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: [], statusCode: 202, headers: nil)
+                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: [], statusCode: 202, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.deleteTodoItem(url,
+                todoClient.deleteTodoItem(url: url,
                                           success: { (todoItem) in
                                               completionCalled = true
                                           },
@@ -293,20 +295,20 @@ class TodoClientSpec: QuickSpec {
             }
 
             it("returns error when if fails delete the todo") {
-                let todoItemId = NSUUID().UUIDString
+                let todoItemId = NSUUID().uuidString
                 let todoItemPath = "/todos/\(todoItemId)"
 
-                let url = NSURL(string: "http://localhost/\(todoItemPath)")!
+                let url = URL(string: "http://localhost/\(todoItemPath)")!
 
-                stub(isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
-                    return OHHTTPStubsResponse(JSONObject: [], statusCode: 500, headers: nil)
+                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
+                    return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
                 let todoClient = TodoClient()
 
                 var completionCalled = false
 
-                todoClient.deleteTodoItem(url,
+                todoClient.deleteTodoItem(url: url,
                                           success: { (_) in
                                               completionCalled = true
                                               expect(true).to(equal(false))

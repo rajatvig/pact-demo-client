@@ -18,13 +18,13 @@ class TodoItemSpec: QuickSpec {
                 expect(todoItem.title).to(equal("blah"))
                 expect(todoItem.order).to(equal(523))
                 expect(todoItem.completed).to(beFalse())
-                expect(todoItem.url).to(equal(NSURL.init(string: "http://localhost/todos/1")))
+                expect(todoItem.url).to(equal(URL.init(string: "http://localhost/todos/1")))
             }
         }
 
         describe("isEqual") {
             it("should be equal for same JSON") {
-                let data = [
+                let data: [String: Any] = [
                     "title": "blah",
                     "order": 523,
                     "completed": false,
@@ -37,13 +37,13 @@ class TodoItemSpec: QuickSpec {
             }
 
             it("should not be equal for different title") {
-                let data1 = [
+                let data1: [String: Any] = [
                     "title": "blah1",
                     "order": 523,
                     "completed": false,
                     "url": "http://localhost/todos/1"
                 ]
-                let data2 = [
+                let data2: [String: Any] = [
                     "title": "blah2",
                     "order": 523,
                     "completed": false,

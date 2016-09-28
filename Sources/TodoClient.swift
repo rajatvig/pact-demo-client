@@ -5,9 +5,9 @@ import SwiftyJSON
 public class TodoClient {
     public init() {}
 
-    public func getTodoList(url: NSURL, success: (TodoList) -> Void, error: () -> Void) -> Void {
+    public func getTodoList(url: URL, success: @escaping (TodoList) -> Void, error: @escaping () -> Void) -> Void {
         makeCall(
-            url,
+            url: url,
             success: { (jsonObj) in
                 success(TodoList(jsonObj))
             },
@@ -15,9 +15,9 @@ public class TodoClient {
         )
     }
 
-    public func getTodoItem(todoItemUrl: NSURL, success: (TodoItem) -> Void, error: () -> Void) -> Void {
+    public func getTodoItem(url: URL, success: @escaping (TodoItem) -> Void, error: @escaping () -> Void) -> Void {
         makeCall(
-            todoItemUrl,
+            url: url,
             success: { (jsonObj) in
                 success(TodoItem(jsonObj))
             },
@@ -25,12 +25,12 @@ public class TodoClient {
         )
     }
 
-    public func createTodoItem(url: NSURL, todoItemData: [String: AnyObject], success: (TodoItem) -> Void, error: () -> Void) -> Void {
+    public func createTodoItem(url: URL, todoItemData: [String: Any], success: @escaping (TodoItem) -> Void, error: @escaping () -> Void) -> Void {
         let headers = [
             "Accept": "application/json"
         ]
 
-        Alamofire.request(.POST, url, headers: headers, parameters: todoItemData, encoding: .JSON)
+        Alamofire.request(url, method: .post, parameters: todoItemData, encoding: JSONEncoding.default, headers: headers)
           .validate()
           .responseJSON { response in
             guard response.result.isSuccess else {
@@ -45,12 +45,12 @@ public class TodoClient {
         }
     }
 
-    public func updateTodoItem(url: NSURL, todoItemData: JSON, success: (TodoItem) -> Void, error: () -> Void) -> Void {
+    public func updateTodoItem(url: URL, todoItemData: [String: Any], success: @escaping (TodoItem) -> Void, error: @escaping () -> Void) -> Void {
         let headers = [
             "Accept": "application/json"
         ]
 
-        Alamofire.request(.PATCH, url, headers: headers, parameters: todoItemData.dictionaryObject, encoding: .JSON)
+        Alamofire.request(url, method: .patch, parameters: todoItemData, encoding: JSONEncoding.default, headers: headers)
           .validate()
           .responseJSON { response in
             guard response.result.isSuccess else {
@@ -65,16 +65,16 @@ public class TodoClient {
         }
     }
 
-    public func deleteTodoItem(todoItemUrl: NSURL, success: () -> Void, error: () -> Void) -> Void {
+    public func deleteTodoItem(url: URL, success: @escaping () -> Void, error: @escaping () -> Void) -> Void {
         let headers = [
             "Accept": "application/json"
         ]
 
-        Alamofire.request(.DELETE, todoItemUrl, headers: headers)
+        Alamofire.request(url, method: .delete, headers: headers)
           .validate()
-          .response { request, response, data, reqerror in
-                      guard reqerror == nil else {
-                          print("error while deleting product: \(reqerror)")
+          .response { response in
+                      guard response.error == nil else {
+                          print("error while deleting product: \(response.error)")
                           error()
                           return
                       }
@@ -83,12 +83,12 @@ public class TodoClient {
         }
     }
 
-    private func makeCall(url: NSURL, success: (JSON) -> Void, error: () -> Void) -> Void {
+    private func makeCall(url: URL, success: @escaping (JSON) -> Void, error: @escaping () -> Void) -> Void {
         let headers = [
             "Accept": "application/json"
         ]
 
-        Alamofire.request(.GET, url, headers: headers)
+        Alamofire.request(url, headers: headers)
           .validate()
           .responseJSON { response in
             guard response.result.isSuccess else {

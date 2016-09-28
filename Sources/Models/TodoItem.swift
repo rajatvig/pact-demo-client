@@ -5,13 +5,13 @@ public struct TodoItem: CustomStringConvertible, Equatable {
     public let title: String
     public let completed: Bool
     public let order: Int?
-    public let url: NSURL?
+    public let url: URL?
 
     public init(_ jsonData: JSON) {
         self.title = jsonData["title"].stringValue
         self.completed = jsonData["completed"].boolValue
         self.order = jsonData["order"].int
-        self.url = NSURL.init(string: jsonData["url"].stringValue)
+        self.url = URL.init(string: jsonData["url"].stringValue)
     }
 
     public var description: String {
