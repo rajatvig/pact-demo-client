@@ -12,11 +12,11 @@
 		2E3A010A1D716DA000866E80 /* todo_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 2E3A01081D716D5700866E80 /* todo_list.json */; };
 		2E436A3D1D62E7F900125168 /* TodoItemSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E436A3B1D62E77F00125168 /* TodoItemSpec.swift */; };
 		2E79D0EF1D67655D003E5BAF /* TodoListSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79D0ED1D676557003E5BAF /* TodoListSpec.swift */; };
+		2E937F841D9C783B0061E4C1 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E937F831D9C783B0061E4C1 /* SwiftyJSON.framework */; };
 		2E9420871D3DA96B007324BB /* TodoClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E9420861D3DA96B007324BB /* TodoClient.swift */; };
 		2E94208B1D3DA9CD007324BB /* TodoClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E94208A1D3DA9CD007324BB /* TodoClientSpec.swift */; };
 		2EB60E641D42799B00EF2A54 /* TodoClientContractSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */; };
 		2EC197301D7F47E90052951B /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC1972F1D7F47E90052951B /* Alamofire.framework */; };
-		2EC197321D7F47F00052951B /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197311D7F47F00052951B /* SwiftyJSON.framework */; };
 		2EC197341D7F4B450052951B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197331D7F4B450052951B /* Nimble.framework */; };
 		2EC197361D7F4B480052951B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197351D7F4B480052951B /* Quick.framework */; };
 		2EC197381D7F4B4C0052951B /* OHHTTPStubs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EC197371D7F4B4C0052951B /* OHHTTPStubs.framework */; };
@@ -51,6 +51,7 @@
 		2E436A3B1D62E77F00125168 /* TodoItemSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoItemSpec.swift; path = Tests/Models/TodoItemSpec.swift; sourceTree = "<group>"; };
 		2E79D0ED1D676557003E5BAF /* TodoListSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoListSpec.swift; path = Tests/Models/TodoListSpec.swift; sourceTree = "<group>"; };
 		2E8A68671D808F600085452F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = "<group>"; };
+		2E937F831D9C783B0061E4C1 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2E9420521D3DA8C5007324BB /* TodoClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TodoClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E94205B1D3DA8C5007324BB /* TodoClientUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoClientUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E9420861D3DA96B007324BB /* TodoClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoClient.swift; path = Sources/TodoClient.swift; sourceTree = "<group>"; };
@@ -58,7 +59,6 @@
 		2EB60E571D42754900EF2A54 /* TodoClientContractTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoClientContractTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB60E621D42799100EF2A54 /* TodoClientContractSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TodoClientContractSpec.swift; path = Tests/TodoClientContractSpec.swift; sourceTree = "<group>"; };
 		2EC1972F1D7F47E90052951B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		2EC197311D7F47F00052951B /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		2EC197331D7F4B450052951B /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		2EC197351D7F4B480052951B /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
 		2EC197371D7F4B4C0052951B /* OHHTTPStubs.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OHHTTPStubs.framework; path = Carthage/Build/iOS/OHHTTPStubs.framework; sourceTree = "<group>"; };
@@ -73,8 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E937F841D9C783B0061E4C1 /* SwiftyJSON.framework in Frameworks */,
 				2EC197301D7F47E90052951B /* Alamofire.framework in Frameworks */,
-				2EC197321D7F47F00052951B /* SwiftyJSON.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,13 +174,13 @@
 		2EBB9DF71D7F3F8400905FC0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2E937F831D9C783B0061E4C1 /* SwiftyJSON.framework */,
 				2EC1973E1D7F4B810052951B /* PactConsumerSwift.framework */,
 				2EC1973C1D7F4B7B0052951B /* Result.framework */,
 				2EC197391D7F4B720052951B /* BrightFutures.framework */,
 				2EC197371D7F4B4C0052951B /* OHHTTPStubs.framework */,
 				2EC197351D7F4B480052951B /* Quick.framework */,
 				2EC197331D7F4B450052951B /* Nimble.framework */,
-				2EC197311D7F47F00052951B /* SwiftyJSON.framework */,
 				2EC1972F1D7F47E90052951B /* Alamofire.framework */,
 			);
 			name = Frameworks;
@@ -263,17 +263,20 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Rajat Vig";
 				TargetAttributes = {
 					2E9420511D3DA8C5007324BB = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2E94205A1D3DA8C5007324BB = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2EB60E561D42754900EF2A54 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -439,8 +442,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -488,8 +493,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -509,6 +516,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -520,6 +528,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -535,6 +544,7 @@
 				PRODUCT_NAME = TodoClient;
 				SKIP_INSTALL = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -542,6 +552,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -556,6 +567,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClient;
 				PRODUCT_NAME = TodoClient;
 				SKIP_INSTALL = NO;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -570,6 +582,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientTests;
 				PRODUCT_NAME = TodoClientUnitTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -584,6 +597,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientTests;
 				PRODUCT_NAME = TodoClientUnitTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -598,6 +612,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientContractTests;
 				PRODUCT_NAME = TodoClientContractTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -612,6 +627,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rajatvig.client.TodoClientContractTests;
 				PRODUCT_NAME = TodoClientContractTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
