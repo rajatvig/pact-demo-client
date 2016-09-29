@@ -1,3 +1,5 @@
+*.coverage.txt
+
 # Created by https://www.gitignore.io/api/swift,osx
 
 ### Swift ###
