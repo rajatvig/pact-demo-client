@@ -1,0 +1,8 @@
+PreBuiltFrameworks/Alamofire.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/BrightFutures.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/Nimble.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/OHHTTPStubs.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/PactConsumerSwift.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/Quick.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/Result.framework.zip filter=lfs diff=lfs merge=lfs -text
+PreBuiltFrameworks/SwiftyJSON.framework.zip filter=lfs diff=lfs merge=lfs -text
