@@ -5,6 +5,9 @@ FASTLANE=bundle exec fastlane
 DC=docker-compose
 DC_P=docker-compose -f docker-compose.pact.yml
 
+CARTHAGE_FRAMEWORKS=ls Carthage/Build/iOS/*.framework | grep "\.framework" | cut -d "/" -f 4 | cut -d "." -f 1 | xargs -I '{}'
+CARTHAGE_ARCHIVES=ls PreBuiltFrameworks/*.zip | grep "\.zip" | cut -d "/" -f 2 | cut -d "." -f 1 | xargs -I '{}'
+
 .DEFAULT_GOAL := help
 
 stop: ## Stop all Docker Containers
@@ -13,13 +16,31 @@ stop: ## Stop all Docker Containers
 
 clean: stop ## Clean all Docker Volumes, Networks, Orphan containers
 	$(DC) down --rmi local --remove-orphans -v
-	$(DC) rm --all -f -v
+	$(DC) rm -f -v
 	$(DC_P) down --rmi local --remove-orphans -v
-	$(DC_P) rm --all -f -v
+	$(DC_P) rm -f -v
+	rm -rf Carthage
 
-install: ## Install Gems, Carthage
-	bundle install
+install_bundle: ## install gems
+	$(BUNDLE) install
+
+install_carthage: ## install carthage frameworks
 	carthage bootstrap --platform iOS --no-use-binaries
+
+install: install_bundle install_carthage ## Install Gems, Carthage
+
+carthage_update: ## update carthage packages
+	carthage update --platform iOS --no-use-binaries
+
+carthage_archive: carthage_update ## update and archive carthage packages
+	rm -rf PreBuiltFrameworks/*.zip
+	$(CARTHAGE_FRAMEWORKS) carthage archive '{}' --output PreBuiltFrameworks/
+
+carthage_extract: clean ## extract from carthage archives
+	$(CARTHAGE_ARCHIVES) unzip PreBuiltFrameworks/'{}'.framework.zip
+
+carthage_copy: ## copy carthage frameworks
+	$(CARTHAGE_FRAMEWORKS) env SCRIPT_INPUT_FILE_0=Carthage/build/iOS/'{}'.framework SCRIPT_INPUT_FILE_COUNT=1 carthage copy-frameworks
 
 lint: ## Run Lint
 	$(FASTLANE) lint

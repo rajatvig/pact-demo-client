@@ -4,7 +4,7 @@ cache:
   - bundler
 
 before_install:
-- make install
+- make install_bundle carthage_extract
 
 script:
 - make test
