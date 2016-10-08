@@ -18,7 +18,7 @@ class TodoClientSpec: QuickSpec {
                 let data: NSData = NSData(contentsOfFile: filePath)!
                 let url = URL(string: "http://localhost/todos")!
 
-                stub(condition: isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(data: data as Data, statusCode: 200, headers: ["Content-Type": "application/json"])
                 }
 
@@ -43,7 +43,7 @@ class TodoClientSpec: QuickSpec {
             it("returns error when if fails get all the todos") {
                 let url = URL(string: "http://localhost/todos")!
 
-                stub(condition: isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath("/todos") && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
@@ -76,7 +76,7 @@ class TodoClientSpec: QuickSpec {
                     "url": "http://localhost\(todoItemPath)"
                 ]
 
-                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(jsonObject: jsonObj, statusCode: 200, headers: nil)
                 }
 
@@ -104,7 +104,7 @@ class TodoClientSpec: QuickSpec {
 
                 let url = URL(string: "http://localhost/\(todoItemPath)")!
 
-                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodGET()) { _ in
                     return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
@@ -141,7 +141,7 @@ class TodoClientSpec: QuickSpec {
 
                 let expectedTodoItem = TodoItem(JSON(responseJsonObj))
 
-                stub(condition: isHost("localhost") && isPath("/todos") && isMethodPOST()) { req in
+                let _ = stub(condition: isHost("localhost") && isPath("/todos") && isMethodPOST()) { req in
                     let request = req as NSURLRequest
                     let postData = JSON(data: request.ohhttpStubs_HTTPBody())
                     expect(postData).to(equal(JSON(jsonObj)))
@@ -170,7 +170,7 @@ class TodoClientSpec: QuickSpec {
             it("returns error when if fails to create the todoitem") {
                 let url = URL(string: "http://localhost/todos")!
 
-                stub(condition: isHost("localhost") && isPath("/todos") && isMethodPOST()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath("/todos") && isMethodPOST()) { _ in
                     return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
@@ -213,7 +213,7 @@ class TodoClientSpec: QuickSpec {
 
                 let expectedTodoItem = TodoItem(JSON(responseJsonObj))
 
-                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { req in
+                let _ = stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { req in
                     let request = req as NSURLRequest
                     let postData = JSON(data: request.ohhttpStubs_HTTPBody())
                     expect(postData).to(equal(JSON(jsonObj)))
@@ -245,7 +245,7 @@ class TodoClientSpec: QuickSpec {
 
                 let url = URL(string: "http://localhost\(todoItemPath)")!
 
-                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodPATCH()) { _ in
                     return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
@@ -273,7 +273,7 @@ class TodoClientSpec: QuickSpec {
 
                 let url = URL(string: "http://localhost\(todoItemPath)")!
 
-                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
                     return OHHTTPStubsResponse(jsonObject: [], statusCode: 202, headers: nil)
                 }
 
@@ -300,7 +300,7 @@ class TodoClientSpec: QuickSpec {
 
                 let url = URL(string: "http://localhost/\(todoItemPath)")!
 
-                stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
+                let _ = stub(condition: isHost("localhost") && isPath(todoItemPath) && isMethodDELETE()) { _ in
                     return OHHTTPStubsResponse(jsonObject: [], statusCode: 500, headers: nil)
                 }
 
