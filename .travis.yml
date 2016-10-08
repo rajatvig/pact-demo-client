@@ -4,6 +4,9 @@ cache:
   - bundler
 
 before_install:
+- brew install git-lfs
+- git lfs install
+- git lfs pull
 - make install_bundle carthage_extract
 
 script:
