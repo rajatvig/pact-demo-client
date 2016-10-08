@@ -22,7 +22,7 @@ clean: stop ## Clean all Docker Volumes, Networks, Orphan containers
 	rm -rf Carthage
 
 install_bundle: ## install gems
-	$(BUNDLE) install
+	bundle install
 
 install_carthage: ## install carthage frameworks
 	carthage bootstrap --platform iOS --no-use-binaries
