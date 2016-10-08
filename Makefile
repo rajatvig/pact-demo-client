@@ -14,12 +14,11 @@ stop: ## Stop all Docker Containers
 	$(DC) stop
 	$(DC_P) stop
 
-clean: stop ## Clean all Docker Volumes, Networks, Orphan containers
+clean: carthage_clean stop ## Clean all Docker Volumes, Networks, Orphan containers
 	$(DC) down --rmi local --remove-orphans -v
 	$(DC) rm -f -v
 	$(DC_P) down --rmi local --remove-orphans -v
 	$(DC_P) rm -f -v
-	rm -rf Carthage
 
 install_bundle: ## install gems
 	bundle install
@@ -29,6 +28,9 @@ install_carthage: ## install carthage frameworks
 
 install: install_bundle install_carthage ## Install Gems, Carthage
 
+carthage_clean: ## clean up all Carthage directories
+	rm -rf Carthage
+
 carthage_update: ## update carthage packages
 	carthage update --platform iOS --no-use-binaries
 
@@ -36,7 +38,7 @@ carthage_archive: carthage_update ## update and archive carthage packages
 	rm -rf PreBuiltFrameworks/*.zip
 	$(CARTHAGE_FRAMEWORKS) carthage archive '{}' --output PreBuiltFrameworks/
 
-carthage_extract: clean ## extract from carthage archives
+carthage_extract: carthage_clean ## extract from carthage archives
 	$(CARTHAGE_ARCHIVES) unzip PreBuiltFrameworks/'{}'.framework.zip
 
 carthage_copy: ## copy carthage frameworks
