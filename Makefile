@@ -20,6 +20,20 @@ clean: carthage_clean stop ## Clean all Docker Volumes, Networks, Orphan contain
 	$(DC_P) down --rmi local --remove-orphans -v
 	$(DC_P) rm -f -v
 
+setup: ## install required tools
+	brew install git-lfs carthage
+	git lfs install
+	git lfs pull
+	brew install carthage
+	brew install --HEAD swiftlint
+
+xcode_tidy_project: ## uniqify+sort+synx, pre-do the pre-commit
+	xunique -us TodoClient.xcodeproj
+	synx -p -q TodoClient.xcodeproj
+
+setup_precommit: ## install the precommit hook
+	echo "make xcode_tidy_project lint" > .git/hooks/pre-commit
+
 install_bundle: ## install gems
 	bundle install
 
